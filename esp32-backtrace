@@ -5,7 +5,11 @@ XTENSA_GDB=~/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-el
 
 # Validate commandline arguments
 if [ -z "$1" ]; then
-    echo "usage: $0 <elf file> <backtrace-text>" 1>&2
+    echo "usage:     $0 <elf file> <backtrace-text>" 1>&2
+    echo "example:   $0 build/esp-idf_my_project.elf 0x40015b2f 0x400147d8" 1>&2
+    echo " " 1>&2
+    echo "Will use gdb to attempt to reconcile the backtrace with files and line numbers." 1>&2
+    echo "If gdb cannot reconcile an address, it will not output for that step in the backtrace." 1>&2
     exit 1
 fi
 elf="$1"
