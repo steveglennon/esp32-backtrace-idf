@@ -5,8 +5,7 @@ XTENSA_GDB=~/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-el
 
 # Validate commandline arguments
 if [ -z "$1" ]; then
-    echo "usage: $0 <elf file> [<backtrace-text>]" 1>&2
-    echo "reads from stdin if no backtrace-text is specified" 2>&2
+    echo "usage: $0 <elf file> <backtrace-text>" 1>&2
     exit 1
 fi
 elf="$1"
@@ -21,8 +20,8 @@ if ! [ -f $XTENSA_GDB ]; then
 fi
 
 if [ -z "$2" ]; then
-    echo "reading backtrace from stdin"
-    bt=/dev/stdin
+    echo "Must provide at least one backtrace pc value, e.g. 0x40015b2f"
+    exit 1
 else
     bt=$@
 fi
