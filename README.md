@@ -10,6 +10,15 @@ bash and xtensa-esp32-elf GDB.
 __Install:__ Place the esp32-backtrace script somewhere in your path or use the full pathname to run
 it. __You need to edit the `XTENSA_GDB` definition at the top of the script.__
 
+Usage
+-----
+```
+usage:     ./esp32-backtrace <elf file> <backtrace-text>
+example:   ./esp32-backtrace build/esp-idf_my_project.elf 0x40015b2f 0x400147d8
+ 
+Will use gdb to attempt to reconcile the backtrace with files and line numbers.
+If gdb cannot reconcile an address, it will not output for that step in the backtrace.
+```
 Example
 -------
 My program crashed printing on the esp-idf serial monitor in VSCode (idf_monitor.py):
@@ -45,6 +54,9 @@ to persist the key elements of the backtrace during a panic into boot-surviving 
 or similar.
 
 Hence I want to be able to resolve the backtrace from just hex pc values.
+
+Example Output
+--------------
 
 I launch the esp-backtrace as:
 `esp32-backtrace build/esp-idf_my_project.elf 0x400d5cd5 0x400d6998 0x400d5b0f`
