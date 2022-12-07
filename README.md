@@ -1,5 +1,5 @@
-ESP32 Exception Stack Backtrace Analyzer
-========================================
+ESP32 Exception Stack Backtrace Analyzer for esp-idf
+====================================================
 
 This little bash script parses the exception backtrace printed by the ESP32 firmware
 and uses GDB to print out the source location of all code addresses.
