@@ -63,12 +63,12 @@ corrupted and that this is a pointer dereference panic.
 
 I changed the syntax from the original project (that I forked from). It no longer handles the register dump (which I don't have in
 in esp-idf nor in my post-reboot reporting) and I removed the option of reading the exception
-from stdini. I changed so the syntax so the  pc list is provided on the command line. I also changed the format
-to not accept the `0x<pc>:0x<sp>` style pasted from the serial onitor - since the idf_monitor already decodes the backtrace, plus
+from stdin. I changed the syntax so the  pc list is provided on the command line. I also changed the format
+to not accept the `0x<pc>:0x<sp>` style pasted from the serial monitor - since the idf_monitor already decodes the backtrace, plus
 my backtrace is now only a list of pc values.
 
 ### Notes:
-- the backtrace shows the inner-most frame first (BT-1) and then goes back in history.
+- The backtrace shows the inner-most frame first (BT-1) and then goes back in history.
 
 Issues
 ------
